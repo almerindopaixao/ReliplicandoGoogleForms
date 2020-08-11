@@ -144,7 +144,7 @@
         </label>
       </div>
 
-      <div class="container-block btn">
+      <div class="container-block buttons">
         <input 
           class="btn" 
           id="btnSubmit" 
