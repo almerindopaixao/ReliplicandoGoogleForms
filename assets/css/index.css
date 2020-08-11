@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 60%;
+}
+
+#root {
+  background-color: #eee;
+  font-family: 'Archivo', sans-serif;
+  font-size: 1.6rem;
+  
+  display: flex;
+  margin: 3.5rem auto;
+  padding: 3rem;
+  max-width: 550px;
+  border-radius: 0.8rem;
+}
+
+.registrationForm {
+  width: 100%;
+}
+
+.registrationForm [type="text"],
+.registrationForm [type="password"] {
+  width: 100%;
+}
+
+.registrationForm textarea {
+  width: 100%;
+}
+
+.input-block-container {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.input-block-container .input-block {
+  padding: 1.5rem 0;
+}
+
+.input-block-container .input-block input, 
+.input-block-container .input-block select {
+  margin: 0.5rem 0;
+}
+
+.registrationForm > .input-block {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.registrationForm > .input-block input,
+.registrationForm textarea {
+  margin-top: 1rem;
+}
+
+.btn {
+  cursor: pointer;
+}
