@@ -86,6 +86,16 @@
   background-color: var(--background-input);
 }
 
+
+.registrationForm #photo {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  height: 3.5rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+
 .registrationForm [type="text"],
 .registrationForm [type="password"] {
   width: 100%;

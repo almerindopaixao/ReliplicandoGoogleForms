@@ -1,5 +1,7 @@
 <?php
   
+  $archivo = isset($_FILES['photo']) ? $_POST['state'] : '';
+
   $name = $_POST["name"];
   $cpf = $_POST["cpf"];
   $address = $_POST["address"];

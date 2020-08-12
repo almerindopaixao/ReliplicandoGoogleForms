@@ -29,6 +29,7 @@
       method="POST"
       name="registrationForm"
       class="registrationForm"
+      enctype=”multipart/form-data”
     >
       <div class="container-block title">
         <h1>Cadastro de Clientes</h1>
@@ -159,6 +160,13 @@
           <input id="password2" type="password" name="password2">
         </label>
         <?php echo $_SESSION['error_passwords']; ?>
+      </div>
+
+      <div class="container-block">
+        <label for="date">
+          Foto
+          <input id="photo" name="photo" type="file">
+        </label>
       </div>
 
       <div class="container-block buttons">
