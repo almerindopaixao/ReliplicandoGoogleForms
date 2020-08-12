@@ -9,10 +9,23 @@
   <title>Formulario de Cadastro</title>
 </head>
 <body>
+
+  <?php 
+    session_start();
+
+    $_SESSION['error_name'] = ''; 
+    $_SESSION['error_address'] = '';
+    $_SESSION['error_passwords'] = '';
+
+    if (isset($_POST['enviar'])):
+      include('controllers/trataPost.php');
+    endif;
+  ?>
+
   <main id="root">
     <div class="background"></div>
     <form 
-      action="src/controllers/cadCliente.php" 
+      action="<?php echo $_SERVER['PHP_SELF']; ?>" 
       method="POST"
       name="registrationForm"
       class="registrationForm"
@@ -27,6 +40,7 @@
           Nome
           <input id="name" type="text" name="name">
         </label>
+        <?php echo $_SESSION['error_name']; ?>
       </div>
 
       <div class="container-block">
@@ -46,12 +60,13 @@
           Endereço
           <textarea id="address" name="address"></textarea>
         </label>
+        <?php echo $_SESSION['error_address']; ?>
       </div>
 
       <div class="container-block">
         <label for="states">
           Estado
-          <select name="states" id="states">
+          <select name="state" id="states">
             <option 
               value="" 
               selected 
@@ -135,6 +150,7 @@
           Senha
           <input id="password" type="password" name="password">
         </label>
+        <?php echo $_SESSION['error_passwords']; ?>
       </div>
       
       <div class="container-block">
@@ -142,24 +158,26 @@
           Confirmar senha
           <input id="password2" type="password" name="password2">
         </label>
+        <?php echo $_SESSION['error_passwords']; ?>
       </div>
 
       <div class="container-block buttons">
-        <input 
+        <button 
           class="btn" 
           id="btnSubmit" 
           type="submit" 
-          name="btnSubmit" 
-          value="Enviar"
+          name="enviar"
         >
+          Enviar
+        </button>
 
-        <input 
+        <button
           class="btn"
           id="btnReset" 
           type="reset" 
-          name="btnReset" 
-          value="Reset"
         >
+          Limpar
+        </button>
       </div>
       
     </form>
