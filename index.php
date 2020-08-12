@@ -17,6 +17,9 @@
     $_SESSION['error_address'] = '';
     $_SESSION['error_passwords'] = '';
     $_SESSION['error_archivo'] = '';
+    $_SESSION['error_cpf'] = '';
+    $_SESSION['error_login'] = '';
+    $_SESSION['error_date'] = ''; 
     
     if (isset($_POST['enviar'])):
       include('controllers/trataPost.php');
@@ -57,6 +60,9 @@
             maxlength="14"
           >
         </label>
+        <?php 
+          echo $_SESSION['error_cpf'];
+        ?>
       </div>
 
       <div class="container-block">
@@ -95,6 +101,9 @@
           Data Nasc.
           <input id="date" name="date" type="date">
         </label>
+        <?php 
+          echo $_SESSION['error_date']; 
+        ?>
       </div>
         
       <div class="container-block">
@@ -149,6 +158,9 @@
           Login
           <input id="login" type="text" name="login">
         </label>
+        <?php 
+          echo $_SESSION['error_login']; 
+        ?>
       </div>
 
       <div class="container-block">
@@ -202,5 +214,7 @@
       
     </form>
   </main>
+
+  <script src="./assets/js/index.js"></script>
 </body>
 </html>

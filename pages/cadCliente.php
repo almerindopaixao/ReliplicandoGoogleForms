@@ -11,7 +11,7 @@
 <body>
   <?php 
     session_start();
-    session_destroy();
+    /*session_destroy();*/
 
     if (isset($_POST['enviar'])):
       include('../controllers/trataPost.php');
@@ -25,13 +25,16 @@
       <h1>Os dados informados são:</h1>
       <div class="data">
         <div>
+          <span>Foto:</span>
           <?php 
 
             if (isset($_SESSION['archivo'])) {
               echo "<img 
                 heigth=100 
                 width=100
-                src='../assets/img/" . $_SESSION['archivo'] . "'>";
+                src='../uploads/img/" . $_SESSION['archivo'] . "'
+                alt='Foto perfil'
+                >";
             } else {
               echo "<div class='image-default'><p>Foto perfil</p></div>";
             }

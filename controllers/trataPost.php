@@ -1,5 +1,7 @@
 <?php
 
+  include('./utils/ValidadorDeCpf.php');
+
   $name = $_POST["name"];
   $cpf = $_POST["cpf"];
   $address = $_POST["address"];
@@ -28,13 +30,35 @@
     $fieldsOK = false;
   }
 
+  if ($login == '') {
+    $_SESSION['error_login'] = "<small>Informe o login.</small>";
+    $fieldsOK = false;
+  }
+
+  if(strtotime($date) == 0  || strtotime($date) >= strtotime("now")) {
+    $_SESSION['error_date'] = "<small>Informe uma data válida.</small>";
+    $fieldsOK = false;
+  }
+
   if($address == '') {
     $_SESSION['error_address'] = '<small>Informe o endereço.</small>';
     $fieldsOK = false;
   }
 
+  if($password == '' && $password2 == '') {
+    $_SESSION['error_passwords'] = '<small>Informe uma senha.</small>';
+    $fieldsOK = false;
+  }
+
   if($password != $password2) {
     $_SESSION['error_passwords'] = '<small>As senhas não combinam.</small>';
+    $fieldsOK = false;
+  }
+
+  $cpfIsValide = CPFIsValid($cpf);
+
+  if ($cpfIsValide == false) {
+    $_SESSION['error_cpf'] = '<small>O cpf informado é inválido</small>';
     $fieldsOK = false;
   }
 
@@ -72,7 +96,7 @@
         return '<small>Erro no arquivo. TIPO não permitido.</small>';
     }
 
-    $destino = './assets/img/';
+    $destino = './uploads/img/';
 
     $destino = $destino . $archivo['name'];
 
