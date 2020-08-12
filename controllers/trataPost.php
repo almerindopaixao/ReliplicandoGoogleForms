@@ -32,12 +32,24 @@
   }
 
   if($password != $password2) {
-    $_SESSION['error_passwords'] = '<small>As senhas não combinam.<small>';
+    $_SESSION['error_passwords'] = '<small>As senhas não combinam.</small>';
     $fieldsOK = false;
   }
 
   if ($fieldsOK) {
     header('Location: http://localhost/replicaGoogleForms/pages/cadCliente.php');
   }
+
+  $_SESSION['name'] = $name;
+  $_SESSION['cpf'] = $cpf;
+  $_SESSION['address'] = $address;
+  $_SESSION['state'] = $state;
+  $_SESSION['date'] = date('d/m/Y', strtotime($date));
+  $_SESSION['sex'] = $sex;
+  $_SESSION['movieTheater'] = $movieTheater;
+  $_SESSION['music'] = $music;
+  $_SESSION['info'] = $info;
+  $_SESSION['login'] = $login;
+  $_SESSION['password'] = $password;
 
 ?>

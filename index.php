@@ -58,7 +58,7 @@
       <div class="container-block">
         <label for="address">
           Endereço
-          <textarea id="address" name="address"></textarea>
+          <textarea id="address" name="address" maxlength="20"></textarea>
         </label>
         <?php echo $_SESSION['error_address']; ?>
       </div>

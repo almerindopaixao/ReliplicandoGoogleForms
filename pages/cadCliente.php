@@ -1,13 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Almerindo da Paixão Junior">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../assets/css/cadCliente.css">
   <title>Cadastro de clientes</title>
 </head>
 <body>
-  <main>
-    
+  <?php 
+    session_start();
+
+    if (isset($_POST['enviar'])):
+      include('../controllers/trataPost.php');
+    endif;
+  
+  ?>
+  <main id="root">
+    <div class="background">
+    </div>
+    <div class="container">
+      <h1>Os dados informados são:</h1>
+      <div class="data">
+        <div>
+          <span>Nome:</span>
+          <span> 
+            <?php echo $_SESSION['name']; ?>    
+          </span>
+        </div>
+
+        <div>
+          <span>CPF:</span>
+          <span><?php echo $_SESSION['cpf']; ?>  </span>
+        </div>
+
+        <div>
+          <span>Endereço:</span>
+          <span><?php echo $_SESSION['address']; ?>  </span>
+        </div>
+
+        <div>
+          <span>Estado:</span>
+          <span><?php echo $_SESSION['state']; ?>  </span>
+        </div>
+
+        <div>
+          <span>Data Nasc:</span>
+          <span><?php echo $_SESSION['date']; ?>  </span>
+        </div>
+
+        <div>
+          <span>Sexo:</span>
+          <span><?php echo $_SESSION['sex']; ?>  </span>
+        </div>
+
+        <div>
+          <span>Senha:</span>
+          <span><?php echo $_SESSION['password']; ?>  </span>
+        </div>
+
+        <div>
+          <span>Áreas de interesse:</span>
+          <span>
+            <?php
+              if ($_SESSION['movieTheater']) {
+                echo "Cinema <br>";
+              }
+
+              if ($_SESSION['music']) {
+                echo "Música <br>";
+              }
+
+              if ($_SESSION['info']) {
+                echo 'Informática <br>';
+              }
+            ?>
+          </span>
+        </div>
+
+      </div>
+    </div>
   </main>
 </body>
 </html>

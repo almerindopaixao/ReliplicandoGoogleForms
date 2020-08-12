@@ -107,6 +107,7 @@
 .registrationForm textarea {
   width: 100%;
   margin-top: 2.5rem;
+  font-family: 'Archivo', sans-serif;
   margin-bottom: 1rem;
   border: 1px solid var(--background-color);
   resize: vertical;
