@@ -30,7 +30,7 @@
       method="POST"
       name="registrationForm"
       class="registrationForm"
-      enctype=”multipart/form-data”
+      enctype="multipart/form-data"
     >
       <div class="container-block title">
         <h1>Cadastro de Clientes</h1>
@@ -172,7 +172,7 @@
       </div>
 
       <div class="container-block">
-        <label for="date">
+        <label for="photo">
           Foto
           <input id="photo" name="photo" type="file">
         </label>

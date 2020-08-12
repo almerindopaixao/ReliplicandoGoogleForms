@@ -1,6 +1,4 @@
 <?php
-  
-  $archivo = $_FILES["photo"];
 
   $name = $_POST["name"];
   $cpf = $_POST["cpf"];
@@ -20,6 +18,8 @@
   $login = $_POST["login"];
   $password = $_POST["password"];
   $password2 = $_POST["password2"];
+
+  $archivo = $_FILES["photo"];
 
   $fieldsOK = true;
 
@@ -52,21 +52,27 @@
       return '<small>Erro no arquivo. Tamanho igual a zero.</small>';
     }
 
-    if ($archivo['size'] > 100000) {
+    if ($archivo['size'] > 2000000) {
       $fieldsOK = false;
-      return '<small>Tamanho maior que o permitido (100 kbytes).</small>';
+      return '<small>Tamanho maior que o permitido (2 mb).</small>';
     }
 
     $types = array('image/gif', 'image/jpg', 'image/jpeg', 'image/pjpeg', 'image/x-png', 'image/png', 'image/bmp');
 
+    $flag = false;
+
     foreach ($types as $type) {
-      if ($archivo['type'] != $type) {
-        $fieldsOK = false;
-        return '<small>Erro no arquivo. TIPO não permitido.</small>';
-      }
+      if ($archivo['type'] == $type) {
+        $flag = true;
+      } 
     }
 
-    $destino = './assets/img';
+    if ($flag == false) {
+      $fieldsOK = false;
+        return '<small>Erro no arquivo. TIPO não permitido.</small>';
+    }
+
+    $destino = './assets/img/';
 
     $destino = $destino . $archivo['name'];
 
@@ -97,6 +103,6 @@
   $_SESSION['info'] = $info;
   $_SESSION['login'] = $login;
   $_SESSION['password'] = $password;
-  $_SESSION['archivo'] = $archivo;
+  $_SESSION['archivo'] = $archivo['name'];
 
 ?>

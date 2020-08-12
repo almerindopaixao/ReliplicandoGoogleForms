@@ -11,6 +11,7 @@
 <body>
   <?php 
     session_start();
+    session_destroy();
 
     if (isset($_POST['enviar'])):
       include('../controllers/trataPost.php');
@@ -23,6 +24,20 @@
     <div class="container">
       <h1>Os dados informados são:</h1>
       <div class="data">
+        <div>
+          <?php 
+
+            if (isset($_SESSION['archivo'])) {
+              echo "<img 
+                heigth=100 
+                width=100
+                src='../assets/img/" . $_SESSION['archivo'] . "'>";
+            } else {
+              echo "<div class='image-default'><p>Foto perfil</p></div>";
+            }
+
+          ?>
+        </div>
         <div>
           <span>Nome:</span>
           <span> 
