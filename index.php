@@ -13,10 +13,11 @@
   <?php 
     session_start();
 
-    $_SESSION['error_name'] = ''; 
+    $_SESSION['error_name'] = '';
     $_SESSION['error_address'] = '';
     $_SESSION['error_passwords'] = '';
-
+    $_SESSION['error_archivo'] = '';
+    
     if (isset($_POST['enviar'])):
       include('controllers/trataPost.php');
     endif;
@@ -41,7 +42,9 @@
           Nome
           <input id="name" type="text" name="name">
         </label>
-        <?php echo $_SESSION['error_name']; ?>
+        <?php 
+          echo $_SESSION['error_name'];
+        ?>
       </div>
 
       <div class="container-block">
@@ -61,7 +64,9 @@
           Endereço
           <textarea id="address" name="address" maxlength="20"></textarea>
         </label>
-        <?php echo $_SESSION['error_address']; ?>
+        <?php 
+          echo $_SESSION['error_address']; 
+        ?>
       </div>
 
       <div class="container-block">
@@ -151,7 +156,9 @@
           Senha
           <input id="password" type="password" name="password">
         </label>
-        <?php echo $_SESSION['error_passwords']; ?>
+        <?php 
+          echo $_SESSION['error_passwords']; 
+        ?>
       </div>
       
       <div class="container-block">
@@ -159,7 +166,9 @@
           Confirmar senha
           <input id="password2" type="password" name="password2">
         </label>
-        <?php echo $_SESSION['error_passwords']; ?>
+        <?php 
+          echo $_SESSION['error_passwords']; 
+        ?>
       </div>
 
       <div class="container-block">
@@ -167,6 +176,9 @@
           Foto
           <input id="photo" name="photo" type="file">
         </label>
+        <?php
+          echo $_SESSION['error_archivo'];
+        ?>
       </div>
 
       <div class="container-block buttons">

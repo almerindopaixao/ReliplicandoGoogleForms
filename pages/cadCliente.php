@@ -26,54 +26,86 @@
         <div>
           <span>Nome:</span>
           <span> 
-            <?php echo $_SESSION['name']; ?>    
+            <?php 
+              echo isset($_SESSION['name']) ? $_SESSION['name'] : ''; 
+            ?>    
           </span>
         </div>
 
         <div>
           <span>CPF:</span>
-          <span><?php echo $_SESSION['cpf']; ?>  </span>
+          <span>
+            <?php 
+              echo isset($_SESSION['cpf']) ? $_SESSION['cpf'] : ''; 
+            ?>  
+          </span>
         </div>
 
         <div>
           <span>Endereço:</span>
-          <span><?php echo $_SESSION['address']; ?>  </span>
+          <span>
+            <?php 
+              echo isset($_SESSION['address']) ? $_SESSION['address'] : ''; 
+            ?>  
+            </span>
         </div>
 
         <div>
           <span>Estado:</span>
-          <span><?php echo $_SESSION['state']; ?>  </span>
+          <span>
+            <?php 
+              echo isset($_SESSION['state']) ? $_SESSION['state'] : ''; 
+            ?>  
+          </span>
         </div>
 
         <div>
           <span>Data Nasc:</span>
-          <span><?php echo $_SESSION['date']; ?>  </span>
+          <span>
+            <?php 
+              echo isset($_SESSION['date']) ? $_SESSION['date'] : ''; 
+            ?>  
+          </span>
         </div>
 
         <div>
           <span>Sexo:</span>
-          <span><?php echo $_SESSION['sex']; ?>  </span>
+          <span>
+            <?php 
+              echo isset($_SESSION['sex']) ? $_SESSION['sex'] : ''; 
+            ?>  
+          </span>
         </div>
 
         <div>
           <span>Senha:</span>
-          <span><?php echo $_SESSION['password']; ?>  </span>
+          <span>
+            <?php 
+              echo isset($_SESSION['password']) ? $_SESSION['password'] : ''; 
+            ?>  
+          </span>
         </div>
 
         <div>
           <span>Áreas de interesse:</span>
           <span>
             <?php
-              if ($_SESSION['movieTheater']) {
-                echo "Cinema <br>";
+              if (isset($_SESSION['movieTheater'])) {
+                if ($_SESSION['movieTheater']) {
+                  echo "Cinema <br>";
+                }
               }
 
-              if ($_SESSION['music']) {
-                echo "Música <br>";
+              if (isset($_SESSION['music'])) {
+                if ($_SESSION['music']) {
+                  echo "Música <br>";
+                }
               }
 
-              if ($_SESSION['info']) {
-                echo 'Informática <br>';
+              if (isset($_SESSION['info'])) {
+                if ($_SESSION['info']) {
+                  echo 'Informática <br>';
+                }
               }
             ?>
           </span>

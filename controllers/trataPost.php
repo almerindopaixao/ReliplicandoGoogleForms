@@ -1,6 +1,6 @@
 <?php
   
-  $archivo = isset($_FILES['photo']) ? $_POST['state'] : '';
+  $archivo = $_FILES["photo"];
 
   $name = $_POST["name"];
   $cpf = $_POST["cpf"];
@@ -38,8 +38,52 @@
     $fieldsOK = false;
   }
 
+  function checksPhoto(&$fieldsOK) {
+
+    global $archivo;
+
+    if ($archivo['error'] != 0) {
+      $fieldsOK = false;
+      return '<small>Erro no UPLOAD do arquivo.</small>'; 
+    }
+
+    if ($archivo['size'] == 0) {
+      $fieldsOK = false;
+      return '<small>Erro no arquivo. Tamanho igual a zero.</small>';
+    }
+
+    if ($archivo['size'] > 100000) {
+      $fieldsOK = false;
+      return '<small>Tamanho maior que o permitido (100 kbytes).</small>';
+    }
+
+    $types = array('image/gif', 'image/jpg', 'image/jpeg', 'image/pjpeg', 'image/x-png', 'image/png', 'image/bmp');
+
+    foreach ($types as $type) {
+      if ($archivo['type'] != $type) {
+        $fieldsOK = false;
+        return '<small>Erro no arquivo. TIPO não permitido.</small>';
+      }
+    }
+
+    $destino = './assets/img';
+
+    $destino = $destino . $archivo['name'];
+
+    $res = move_uploaded_file($archivo['tmp_name'], $destino);
+
+    if ($res == false) {
+      $fieldsOK = false;
+      return '<small>Erro ao copiar o arquivo para o destino</small>';
+    }
+
+    return '';
+  }
+
+  $_SESSION['error_archivo'] = checksPhoto($fieldsOK);
+
   if ($fieldsOK) {
-    header('Location: http://localhost/replicaGoogleForms/pages/cadCliente.php');
+    header('Location: ./pages/cadCliente.php');
   }
 
   $_SESSION['name'] = $name;
@@ -53,5 +97,6 @@
   $_SESSION['info'] = $info;
   $_SESSION['login'] = $login;
   $_SESSION['password'] = $password;
+  $_SESSION['archivo'] = $archivo;
 
 ?>
