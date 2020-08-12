@@ -43,7 +43,7 @@
 
       <div class="container-block">
         <label for="address">
-          Endereco
+          Endereço
           <textarea id="address" name="address"></textarea>
         </label>
       </div>

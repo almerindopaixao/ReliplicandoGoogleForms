@@ -11,7 +11,7 @@
   font-size: 60%;
   --background-color: #F0EBF8;
   --primary-color: #6122cc;
-  --primary-dark: #6122cc
+  --primary-dark: #471f8d;
   --banner-color: #683db3e8;
   --background-input: rgba(252, 248, 248, 0.699);
   
@@ -152,6 +152,14 @@
   border-radius: 0.8rem;
 }
 
+.btn:hover {
+  background-color: var(--primary-dark);
+}
+
 .btn:first-child {
   margin-right: 2rem;
+}
+
+.container-block label div input {
+  margin-right: 1rem;
 }
