@@ -11,7 +11,7 @@
 <body>
   <?php 
     session_start();
-    /*session_destroy();*/
+    session_destroy();
 
     if (isset($_POST['enviar'])):
       include('../controllers/trataPost.php');
@@ -26,6 +26,7 @@
       <div class="data">
         <div>
           <span>Foto:</span>
+          <span>
           <?php 
 
             if (isset($_SESSION['archivo'])) {
@@ -38,8 +39,9 @@
             } else {
               echo "<div class='image-default'><p>Foto perfil</p></div>";
             }
-
+            
           ?>
+          </span>
         </div>
         <div>
           <span>Nome:</span>

@@ -32,7 +32,7 @@
   margin-top: 10rem;
   padding-bottom: 10rem;
   z-index: 1;
-  min-width: 650px;
+  width: 650px;
 }
 
 .background {
@@ -181,4 +181,15 @@
 
 small {
   color: red;
+}
+
+/* RESPONSIVE MODE */
+
+@media(max-width: 700px) {
+  :root {
+    font-size: 50%;
+  }
+  .registrationForm {
+    width: 90%;
+  }
 }

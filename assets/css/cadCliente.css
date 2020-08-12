@@ -79,3 +79,26 @@
 span + span {
   font-weight: bold;
 }
+
+/* RESPONSIVE MODE */
+
+@media(max-width: 700px) {
+  .container {
+    width: 90%;
+  }
+
+  :root {
+    font-size: 63%;
+  }
+
+  .data > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+  }
+
+  span + span {
+    margin-top: 2rem;
+  }
+}
